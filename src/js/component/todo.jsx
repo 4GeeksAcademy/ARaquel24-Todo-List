@@ -22,14 +22,22 @@ const Todo = () => {
 
     return (
         <>
-            <h1>Todo</h1>
-            <input value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} type="text" placeholder="What needs to be done?"/>
-            {notes.map((note, index) => (
-                <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
-                    <p style={{ margin: '0', flexGrow: 1 }}>{note} - {index}</p>
-                    <button onClick={() => handleDelete(index)} style={{ marginLeft: '8px' }}>X</button>
+            <div className="position-absolute top-50 start-50 translate-middle" style={{width: '50rem', backgroundColor: "pink", height: '25rem'}}>
+                <h1 className="d-flex justify-content-center  " style={{ fontSize: '100px' }}>Todo</h1>
+                <div className="position-absolute top-30 start-50 translate-middle" >
+                    <input value={inputValue} onChange={handleInputChange} onKeyDown={handleKeyDown} type="text" placeholder="What needs to be done?"/>
+                    {notes.map((note, index) => (
+                        <div key={index} style={{ display: 'flex', alignItems: 'center' }}>
+                            <p style={{ margin: '0', flexGrow: 1 }}>{note}</p>
+                            <button onClick={() => handleDelete(index)} style={{ marginLeft: '8px' }}>X</button>
+                        </div>
+                    ))}
+
                 </div>
-            ))}
+               
+
+            </div>
+            
         </>
     );
 };
